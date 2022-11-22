@@ -1,3 +1,6 @@
+import 'transporte.dart';
+import 'viagem.dart';
+
 void main() {
   escolherMeioTransporte(transporte.andando);
   escolherMeioTransporte(transporte.skate);
@@ -9,22 +12,19 @@ void main() {
   print(registrosVisitados.contains('São Paulo'));
   print(registrosVisitados.contains('Rio de Janeiro'));
 
-  Map<String,dynamic> registrarPrecos = {};
-  registrarPrecos ['São Paulo'] = 1200;
-  registrarPrecos ['Minas gerais'] = 900;
+  Map<String, dynamic> registrarPrecos = {};
+  registrarPrecos['São Paulo'] = 1200;
+  registrarPrecos['Minas gerais'] = 900;
   print(registrarPrecos);
   print(registrarPrecos['Minas gerais']);
   registrarPrecos.remove('São Paulo');
   print(registrarPrecos);
-
-
+  print(consultarNdeViagens);
 }
 
-Set<String> registrarDestinos(String destino, Set<String>database){
-
+Set<String> registrarDestinos(String destino, Set<String> database) {
   database.add(destino);
   return database;
-
 }
 
 void escolherMeioTransporte(transporte locomocao) {
@@ -50,11 +50,8 @@ void escolherMeioTransporte(transporte locomocao) {
   }
 }
 
-enum transporte {
-  carro,
-  bike,
-  andando,
-  moto,
-  caminhao,
-  skate;
+
+
+int get consultarNdeViagens{
+  return Viajar.viagens;
 }
